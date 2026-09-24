@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Developer | Contact</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg: #080808;
+            --card: #111111;
+            --border: #252525;
+            --white: #ffffff;
+            --muted: #999999;
+            --gold: #e8a217;
+        }
+
+        body {
+            min-height: 100vh;
+            background:
+                radial-gradient(
+                    circle at 50% 0%,
+                    rgba(232, 162, 23, 0.14),
+                    transparent 38%
+                ),
+                var(--bg);
+
+            color: var(--white);
+            font-family: 'Outfit', sans-serif;
+        }
+
+        .page {
+            width: 100%;
+            max-width: 460px;
+            min-height: 100vh;
+            margin: auto;
+            padding: 55px 22px 25px;
+
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Profile */
+
+        .profile {
+            text-align: center;
+        }
+
+        .profile-image {
+            width: 100px;
+            height: 100px;
+
+            margin: 0 auto 20px;
+
+            border-radius: 50%;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            background: linear-gradient(
+                135deg,
+                #e8a217,
+                #8b5e08
+            );
+
+            border: 3px solid rgba(255,255,255,0.12);
+
+            box-shadow:
+                0 0 40px rgba(232,162,23,0.25);
+        }
+
+        .profile-image span {
+            font-size: 20px;
+            font-weight: 800;
+            letter-spacing: 2px;
+            color: #111;
+        }
+
+        .profile h1 {
+            font-size: 36px;
+            font-weight: 800;
+            letter-spacing: -1px;
+            margin-bottom: 5px;
+        }
+
+        .subtitle {
+            color: var(--gold);
+            font-size: 15px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            margin-bottom: 14px;
+        }
+
+        .description {
+            max-width: 340px;
+            margin: auto;
+
+            color: var(--muted);
+            font-size: 13px;
+            line-height: 1.7;
+        }
+
+        /* Contact buttons */
+
+        .contacts {
+            margin-top: 35px;
+
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+
+        .contact-card {
+            position: relative;
+
+            min-height: 78px;
+            padding: 12px 16px;
+
+            display: flex;
+            align-items: center;
+
+            text-decoration: none;
+            color: var(--white);
+
+            background: rgba(17,17,17,0.9);
+
+            border: 1px solid var(--border);
+            border-radius: 18px;
+
+            transition: 0.25s ease;
+
+            overflow: hidden;
+        }
+
+        .contact-card:hover {
+            transform: translateY(-3px);
+            background: #151515;
+        }
+
+        .contact-card:active {
+            transform: scale(0.98);
+        }
+
+        /* Icon */
+
+        .icon {
+            width: 50px;
+            height: 50px;
+
+            flex-shrink: 0;
+
+            margin-right: 14px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 15px;
+
+            font-size: 25px;
+            font-weight: 700;
+        }
+
+        /* WhatsApp */
+
+        .whatsapp-icon {
+            color: #25d366;
+            background: rgba(37,211,102,0.13);
+        }
+
+        .whatsapp:hover {
+            border-color: rgba(37,211,102,0.45);
+        }
+
+        /* Instagram */
+
+        .instagram-icon {
+            color: #e1306c;
+            background: rgba(225,48,108,0.13);
+        }
+
+        .instagram:hover {
+            border-color: rgba(225,48,108,0.45);
+        }
+
+        /* Discord */
+
+        .discord-icon {
+            color: #5865f2;
+            background: rgba(88,101,242,0.13);
+        }
+
+        .discord:hover {
+            border-color: rgba(88,101,242,0.45);
+        }
+
+        /* Text */
+
+        .contact-info {
+            flex: 1;
+
+            display: flex;
+            flex-direction: column;
+            gap: 3px;
+        }
+
+        .platform {
+            font-size: 17px;
+            font-weight: 700;
+        }
+
+        .action {
+            color: var(--muted);
+            font-size: 12px;
+            font-weight: 500;
+        }
+
+        /* Arrow */
+
+        .arrow {
+            width: 32px;
+            height: 32px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 50%;
+
+            background: #1c1c1c;
+            color: #aaa;
+
+            font-size: 18px;
+
+            transition: 0.25s ease;
+        }
+
+        .contact-card:hover .arrow {
+            transform: translateX(4px);
+            background: #252525;
+        }
+
+        /* Footer */
+
+        footer {
+            margin-top: auto;
+            padding-top: 45px;
+            text-align: center;
+        }
+
+        footer p {
+            color: #555;
+            font-size: 11px;
+            letter-spacing: 1px;
+        }
+
+        @media (min-width: 600px) {
+
+            .page {
+                padding-top: 80px;
+            }
+
+            .profile h1 {
+                font-size: 40px;
+            }
+
+            .contact-card {
+                min-height: 82px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <main class="page">
+
+        <!-- Profile -->
+
+        <section class="profile">
+
+            <div class="profile-image">
+                <span>DEV</span>
+            </div>
+
+            <h1>MUHAMMED INSAF</h1>
+
+            <p class="subtitle">
+                Let's connect with me
+            </p>
+
+            <p class="description">
+                For projects, collaborations or any queries,
+                feel free to contact me through the platforms below.
+            </p>
+
+        </section>
+
+
+        <!-- Contact Links -->
+
+        <section class="contacts">
+
+            <!-- WhatsApp -->
+
+            <a
+                class="contact-card whatsapp"
+                href="https://wa.me/XXXXXXXXXXXX"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+
+                <div class="icon whatsapp-icon">
+                    ☎
+                </div>
+
+                <div class="contact-info">
+
+                    <span class="platform">
+                        WhatsApp
+                    </span>
+
+                    <span class="action">
+                        Chat with me
+                    </span>
+
+                </div>
+
+                <span class="arrow">
+                    →
+                </span>
+
+            </a>
+
+
+            <!-- Instagram -->
+
+            <a
+                class="contact-card instagram"
+                href="https://instagram.com/YOUR_USERNAME"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+
+                <div class="icon instagram-icon">
+                    ◎
+                </div>
+
+                <div class="contact-info">
+
+                    <span class="platform">
+                        Instagram
+                    </span>
+
+                    <span class="action">
+                        Follow me
+                    </span>
+
+                </div>
+
+                <span class="arrow">
+                    →
+                </span>
+
+            </a>
+
+
+            <!-- Discord -->
+
+            <a
+                class="contact-card discord"
+                href="https://discord.com/users/YOUR_ID"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+
+                <div class="icon discord-icon">
+                    ◈
+                </div>
+
+                <div class="contact-info">
+
+                    <span class="platform">
+                        Discord
+                    </span>
+
+                    <span class="action">
+                        Connect with me
+                    </span>
+
+                </div>
+
+                <span class="arrow">
+                    →
+                </span>
+
+            </a>
+
+        </section>
+
+
+        <!-- Footer -->
+
+        <footer>
+            <p>
+                © 2026 Developer
+            </p>
+        </footer>
+
+    </main>
+
+</body>
+</html>
